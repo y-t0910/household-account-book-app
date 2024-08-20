@@ -1,1 +1,0 @@
-# yuto-takahashi-educure-app
