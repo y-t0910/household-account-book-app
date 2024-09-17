@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>アカウント修正</title>
+</head>
+<body>
+<h1>アカウント修正</h1>
+<form th:action="@{/edit_account}" th:object="${user}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <div>
+        <label>ユーザー名:</label>
+        <input type="text" th:field="*{name}" />
+    </div>
+    <div>
+        <label>メールアドレス:</label>
+        <input type="email" th:field="*{email}" />
+    </div>
+    <div>
+        <label>パスワード:</label>
+        <input type="password" th:field="*{password}" />
+    </div>
+    <button type="submit">更新</button>
+</form>
+
+
+<div th:if="${param.success}">
+    <p>アカウント情報が更新されました。</p>
+</div>
+</body>
+</html>

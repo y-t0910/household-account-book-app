@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>データ編集・削除</title>
+</head>
+<body>
+    <h2>データ編集・削除</h2>
+
+    <!-- データ編集フォーム -->
+    <form th:action="@{/management/edit/{id}(id=${budget.id})}" method="post">
+        <label for="categoryId">カテゴリID:</label>
+        <input type="number" id="categoryId" th:field="*{categoryId}" />
+        <br>
+
+        <label for="amount">金額:</label>
+        <input type="number" id="amount" th:field="*{amount}" />
+        <br>
+
+        <button type="submit">更新</button>
+    </form>
+
+    <!-- データ削除フォーム -->
+    <form th:action="@{/management/delete/{id}(id=${budget.id})}" method="post">
+        <p>このデータを削除しますか？</p>
+        <button type="submit" class="btn btn-danger">削除</button>
+    </form>
+
+    <!-- 戻るボタン -->
+    <a href="/management" class="btn btn-secondary">戻る</a>
+</body>
+</html>
